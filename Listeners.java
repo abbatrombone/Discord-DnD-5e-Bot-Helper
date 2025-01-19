@@ -59,8 +59,6 @@ public class Listeners extends ListenerAdapter{
                         .addOption(OptionType.STRING, "requiresattunement","filters for items if you want or do not want attunement",false,true),
                 Commands.slash("conditions","Gives status condition affects")
                         .addOption(OptionType.STRING,"status","Status Condition",true,true),
-                Commands.slash("reportbug","report bug, message needs to be less than 2000 charaters!")
-                        .addOption(OptionType.STRING,"message","report bug, message needs to be less than 2000 charaters!",true,false),
                 Commands.slash("loot","Generates loot for encounters")
                         .addOption(OptionType.INTEGER,"cr","Challenge Rating / Encounter Level",true)
                         .addOption(OptionType.STRING,"type","Individual or Hoard",true,true),
@@ -75,8 +73,6 @@ public class Listeners extends ListenerAdapter{
                 Commands.slash("randombuilding","generates a random or chosen building")
                         .addOption(OptionType.INTEGER,"number","number of buildings",false,false)
                         .addOption(OptionType.STRING,"building","building type",false,true),
-                Commands.slash("trazdream","No.")
-                        .addOption(OptionType.INTEGER,"numbuh1","No.",true,false),
                 Commands.slash("dmme","sends you a message"),
                 Commands.slash("drinkingrules","Gives homebrewed rules for drinking"),
                 Commands.slash("npc","makes the basics for an npc")
