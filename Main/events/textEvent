@@ -1,0 +1,60 @@
+package events;
+
+import net.dv8tion.jda.api.entities.Mentions;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Arrays;
+import java.util.Objects;
+
+public class textEvent extends ListenerAdapter {
+
+//This class looks at messages and then compares what was sent in the if(){} statements and responds to the event
+    //Note: you can only respond to an event once!
+    public void onMessageReceived(@NotNull MessageReceivedEvent event) {
+        if (event.equals("textEvent")) {
+
+        String channelMention = event.getChannel().getAsMention();
+        String messageSent = event.getMessage().getContentRaw();
+        String name = Objects.requireNonNull(event.getMember()).getEffectiveName(); //added requireNonNull() to try and prevent error (dont know what procs it)
+        String[] player = event.getMessage().getContentRaw().split(" "); //splits message into strings each part is separated by a space.
+
+        if (player[0].equalsIgnoreCase("Range") && player.length == 1) {
+            event.getChannel().sendMessage("To use this command, Type(without brackets): /Range [horizontal distance] [veritcal distance] [y|n]]").queue();
+            event.getChannel().sendMessage("y or n is for is you want recommended spells in range or not. Have fun killing!").queue();
+        }
+
+        if (messageSent.equalsIgnoreCase("hello")) {
+            if (!event.getMember().getUser().isBot()) {
+                event.getChannel().sendMessage("Hi " + name).queue();
+            }
+        }
+        if (messageSent.equalsIgnoreCase("Head count")) {
+            event.getChannel().sendMessage("I am a bot and do not count towards the head count. I do hope you have fun and totally don't die *wink wink*").queue();
+        }
+        if (messageSent.equalsIgnoreCase("What do you do D&D RangeCalc")) {
+            event.getChannel().sendMessage("I take the vertical and horizontal distance from a target to tell you the distance between you and your target, and can give common spells that are in that range.").queue();
+        }
+        if (messageSent.equalsIgnoreCase("Hello there")) {
+            event.getChannel().sendMessage("General Kenobi!").queue();
+        }
+        if (messageSent.equalsIgnoreCase("Open the pod bay doors Hal")) {
+            event.getChannel().sendMessage("I’m sorry, " + event.getAuthor().getName() + ". I’m afraid I can’t do that.").queue();
+        }
+        if (messageSent.equalsIgnoreCase("Shall we play a game?")) {
+            event.getChannel().sendMessage("Love to. How about Global Thermonuclear War or would you prefer a game of Chess?").queue();
+        }
+        if (messageSent.equalsIgnoreCase("access main security grid")) {
+            event.getChannel().sendMessage("AH AH AH, YOU DIDN'T SAY THE MAGIC WORD!").queue();
+        }
+       
+        }
+    }
+}
+
+
+
+
