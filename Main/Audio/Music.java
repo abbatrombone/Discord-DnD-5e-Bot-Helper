@@ -35,11 +35,7 @@ public class Music extends ListenerAdapter {
         });
     }
     List<String> filePaths = List.of(
-           // "/home/trazodone/Music/Correct.wav",
-           //"/home/trazodone/Music/WRONG.wav",
-            "https://www.youtube.com/watch?v=aGm_X6viE0A"
-           //"/home/trazodone/Music/A Night Alone - TrackTribe.mp3",
-            //"/home/trazodone/Music/Walk Through the Park - TrackTribe.mp3"
+//You can add files here and it would autoload them eachtime /vc is run
     );
 
     @Override
